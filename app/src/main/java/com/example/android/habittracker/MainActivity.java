@@ -5,7 +5,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.TextView;
 
 import com.example.android.habittracker.data.HabitContract.HabitEntry;
 import com.example.android.habittracker.data.HabitDatabaseHelper;
@@ -47,37 +46,9 @@ public class MainActivity extends AppCompatActivity {
                 null,
                 null,
                 null);
-
-        TextView displayView = (TextView) findViewById(R.id.text_view_habit);
-
-        try {
-
-            // create header for table displayed
-            // iterate through each row in table and show results
-            displayView.setText(HabitEntry._ID + " -- " +
-                    HabitEntry.COLUMN_HABIT_NAME + " -- " +
-                    HabitEntry.COLUMN_HABIT_FREQUENCY + "\n");
-
-            int idColumnIndex = cursor.getColumnIndex(HabitEntry._ID);
-            int habitNameColumnIndex = cursor.getColumnIndex(HabitEntry.COLUMN_HABIT_NAME);
-            int habitFrequencyIndex = cursor.getColumnIndex(HabitEntry.COLUMN_HABIT_FREQUENCY);
-
-            while (cursor.moveToNext()) {
-                // extract values from current entry and display as new row
-                int currentID = cursor.getInt(idColumnIndex);
-                String currentHabitName = cursor.getString(habitNameColumnIndex);
-                int currentFrequency = cursor.getInt(habitFrequencyIndex);
-
-                displayView.append(("\n" + currentID + " -- " +
-                        currentHabitName + " -- " +
-                        currentFrequency));
-            }
-        } finally {
-            // close the cursor to save resources
-            cursor.close();
-        }
         return cursor;
     }
+
     // method for creating and editing a habit
     private void insertHabit() {
 
