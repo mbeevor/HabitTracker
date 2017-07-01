@@ -26,7 +26,7 @@ public class HabitDatabaseHelper extends SQLiteOpenHelper {
     // method to implement when database is first created
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String SQL_CREATE_HABIT_TABLE = "CREATE TABLE" + HabitEntry.TABLE_NAME + " ("
+        String SQL_CREATE_HABIT_TABLE = "CREATE TABLE " + HabitEntry.TABLE_NAME + " ("
                 + HabitEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + HabitEntry.COLUMN_HABIT_NAME + " TEXT NOT NULL, "
                 + HabitEntry.COLUMN_HABIT_FREQUENCY + " INTEGER NOT NULL DEFAULT 1);";
