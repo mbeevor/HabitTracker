@@ -23,11 +23,11 @@ public class MainActivity extends AppCompatActivity {
 
         habitHelper = new HabitDatabaseHelper(this);
         insertHabit();
-        displayDatabaseInfo();
+        readAllHabits();
     }
 
     // method for displaying list of habits and number of times completed (frequency)
-    private void displayDatabaseInfo() {
+    private Cursor readAllHabits() {
 
         //create or open database to read from
         SQLiteDatabase sqLiteDatabase = habitHelper.getReadableDatabase();
@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
             // close the cursor to save resources
             cursor.close();
         }
+        return cursor;
     }
     // method for creating and editing a habit
     private void insertHabit() {
