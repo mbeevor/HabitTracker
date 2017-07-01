@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         habitHelper = new HabitDatabaseHelper(this);
+        insertHabit();
         displayDatabaseInfo();
     }
 
