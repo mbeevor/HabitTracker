@@ -89,9 +89,6 @@ public class MainActivity extends AppCompatActivity {
         values.put(HabitEntry.COLUMN_HABIT_NAME, "habit name");
         values.put(HabitEntry.COLUMN_HABIT_FREQUENCY, 1);
 
-        // insert habit as new row in habits database
-        long newRow = sqLiteDatabase.insert(HabitEntry.TABLE_NAME, null, values);
-
     }
 
 }
